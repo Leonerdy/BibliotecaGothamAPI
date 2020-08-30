@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BibliotecaGothamApp.Views.MainPage"
+             Title="{Binding Title}">
+
+    <StackLayout  Padding="10" HorizontalOptions="CenterAndExpand">
+        <Image Source="bib"/>
+
+        <Label Margin="20" Text="Bem-vindo a Biblioteca de Gotham "  FontSize ="20" HorizontalOptions="Center"/>
+
+        <Label Margin="20" HorizontalOptions="StartAndExpand"  HorizontalTextAlignment="Center"
+               Text="Escolha as suas configurações de paginação da Biblioteca" FontSize="18" />
+
+        <Entry Margin="20" Placeholder="Página" />
+
+        <Entry Margin="20" Placeholder="Registros por Página" />
+
+        <Button Text="Pesquisar" VerticalOptions="EndAndExpand"/>
+    </StackLayout>
+
+</ContentPage>
