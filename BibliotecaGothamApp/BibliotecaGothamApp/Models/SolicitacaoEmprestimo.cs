@@ -6,8 +6,8 @@ namespace BibliotecaGothamApp.Models
 {
     public class SolicitacaoEmprestimo
     {
-        public string nome { get; set; }
-        public string telefone { get; set; }
-        public Livro livro { get; set; }
+        public string Nome { get; set; }
+        public string Telefone { get; set; }
+        public Lista Livro { get; set; }
     }
 }

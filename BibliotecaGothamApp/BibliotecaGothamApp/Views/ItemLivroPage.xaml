@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage Visual ="Material"  xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="BibliotecaGothamApp.Views.ItemLivroPage"
+             xmlns:local="clr-namespace:BibliotecaGothamApp.Views"
+             Title="{Binding Title}"
+             BackgroundColor="#EEEEEE">
+  
+    <StackLayout>
+        <local:ConnectionView/>
+
+        <RefreshView IsRefreshing="{Binding IsRefreshing}">
+            <ScrollView BackgroundColor="#EEEEEE" VerticalOptions="CenterAndExpand">
+        <Frame Margin="10" BackgroundColor="White" CornerRadius="10" >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+
+                <Label TextColor="Black" Text="Nome:" Grid.Row="1" Grid.Column="1"/>
+
+                <Label TextColor="#6200EE" Text="{Binding LivroSelecionado.Autor}" Grid.Row="1" Grid.Column="2"/>
+
+                    <Label TextColor="Black" Text="Título:" Grid.Row="2" Grid.Column="1"/>
+
+                <Label TextColor="#6200EE" Text="{Binding LivroSelecionado.Titulo}" Grid.Row="2" Grid.Column="2"/>
+
+                    <Label TextColor="Black" Text="Descrição:" Grid.Row="3" Grid.Column="1"/>
+
+                <Label TextColor="#6200EE" Text="{Binding LivroSelecionado.Descricao}" Grid.Row="3" Grid.Column="2"  HorizontalOptions="FillAndExpand"/>
+
+                    <Label TextColor="Black" Text="Disponível:" Grid.Row="4" Grid.Column="1"/>
+
+                <Label TextColor="#6200EE" Text="{Binding LivroSelecionado.Disponivel}" Grid.Row="4" Grid.Column="2"/>
+
+                    <Label TextColor="Black" Text="Ano:" Grid.Row="5" Grid.Column="1"/>
+
+                <Label TextColor="#6200EE" Text="{Binding LivroSelecionado.informacoesPublicacao.Ano}" Grid.Row="5" Grid.Column="2"/>
+
+                    <Label TextColor="Black" Text="ISBN:" Grid.Row="6" Grid.Column="1"/>
+
+                <Label TextColor="#6200EE" Text="{Binding LivroSelecionado.informacoesPublicacao.Isbn}" Grid.Row="6" Grid.Column="2"/>
+
+                    <Label TextColor="Black" Text="Editora:" Grid.Row="7" Grid.Column="1"/>
+
+                <Label TextColor="#6200EE" Text="{Binding LivroSelecionado.informacoesPublicacao.Editora}" Grid.Row="7" Grid.Column="2"/>
+
+                    <Label TextColor="Black" Text="Edição" Grid.Row="8" Grid.Column="1"/>
+
+                <Label TextColor="#6200EE" Text="{Binding LivroSelecionado.informacoesPublicacao.Edicao}" Grid.Row="8" Grid.Column="2"/>
+
+                    <Label TextColor="Black" Text="Páginas:" Grid.Row="9" Grid.Column="1"/>
+
+                <Label TextColor="#6200EE" Text="{Binding LivroSelecionado.informacoesPublicacao.Paginas}" Grid.Row="9" Grid.Column="2"/>
+
+            </Grid>
+        </Frame>
+        </ScrollView>
+        </RefreshView>
+
+        <Frame Margin="10,0,10,10" CornerRadius="10" VerticalOptions="EndAndExpand">
+            <StackLayout>
+
+                <Label Text ="Por favor insira seu nome e telefone para empréstimo de livro" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="Center" TextColor="Black"/>
+
+                <StackLayout>
+                    <Entry HorizontalOptions="FillAndExpand" Placeholder="Nome" Keyboard="Text" MaxLength="20" Text="{Binding Nome, Mode=OneWayToSource}"/>
+                    <Entry  Placeholder="Telefone" Keyboard="Telephone" MaxLength="11" Text="{Binding Telefone, Mode=OneWayToSource}"/>
+                </StackLayout>
+
+                <Button  Text="Emprestar Livro" Command="{Binding EmprestarCommand}"/>
+            </StackLayout>
+           
+        </Frame>
+ 
+    </StackLayout>
+  
+</ContentPage>

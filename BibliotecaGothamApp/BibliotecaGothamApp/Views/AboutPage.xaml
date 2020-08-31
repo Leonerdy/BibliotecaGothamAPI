@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage Visual ="Material" xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="BibliotecaGothamApp.Views.AboutPage"
+             Title="Sobre">
+
+    <StackLayout>
+        <Label FontSize="Large" Padding="10" TextColor="black" FontAttributes="Bold" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center" 
+               Text="Aplicativo criado para participar da seleção da vaga de Desenvolvedor Mobile na Vibe Tecnologia."/>
+
+        <Label FontSize="Large" Padding="10" TextColor="black" FontAttributes="Bold" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center" 
+               Text="App criado com a utilização de Xamarin Form."/>
+        <Image Source="batpurpurina" VerticalOptions="EndAndExpand"/>
+    </StackLayout>
+
+</ContentPage>

@@ -1,22 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentPage Visual ="Material" xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BibliotecaGothamApp.Views.MainPage"
              Title="{Binding Title}">
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Sobre"
+                 Command="{Binding AboutCommand}"
+                 Order="Secondary"
+                 Priority="2" />
+    </ContentPage.ToolbarItems>
+
     <StackLayout  Padding="10" HorizontalOptions="CenterAndExpand">
         <Image Source="bib"/>
 
-        <Label Margin="20" Text="Bem-vindo a Biblioteca de Gotham "  FontSize ="20" HorizontalOptions="Center"/>
+        <Label Margin="10" Text="Bem-vindo a Biblioteca de Gotham " HorizontalTextAlignment="Center"  FontSize ="20" HorizontalOptions="Center"/>
 
-        <Label Margin="20" HorizontalOptions="StartAndExpand"  HorizontalTextAlignment="Center"
-               Text="Escolha as suas configurações de paginação da Biblioteca" FontSize="18" />
+        <Label Margin="10" HorizontalOptions="StartAndExpand"  HorizontalTextAlignment="Center"
+               Text="Escolha e empreste os melhores livros, combata o crime com conhecimento =) " FontSize="20" />
 
-        <Entry Margin="20" Placeholder="Página" />
+        <Label Margin="10" HorizontalOptions="StartAndExpand"  HorizontalTextAlignment="Center"
+               Text="'O livro é um mudo que fala, um surdo que responde, um cego que guia, um morto que vive.'" FontSize="20" />
 
-        <Entry Margin="20" Placeholder="Registros por Página" />
-
-        <Button Text="Pesquisar" VerticalOptions="EndAndExpand"/>
+        <Image Source="batman"/>
+        
+        <Button Text="Entrar" VerticalOptions="EndAndExpand" Command="{Binding NavigateCommand}"/>
     </StackLayout>
 
 </ContentPage>

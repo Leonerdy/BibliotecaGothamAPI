@@ -28,6 +28,9 @@ namespace BibliotecaGothamApp
 
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
+            containerRegistry.RegisterForNavigation<LivrosPage, LivrosPageViewModel>();
+            containerRegistry.RegisterForNavigation<ItemLivroPage, ItemLivroPageViewModel>();
+            containerRegistry.RegisterForNavigation<AboutPage, AboutPageViewModel>();
         }
     }
 }

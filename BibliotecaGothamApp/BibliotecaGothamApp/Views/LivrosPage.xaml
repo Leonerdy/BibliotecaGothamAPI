@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage Visual ="Material" xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="BibliotecaGothamApp.Views.LivrosPage"
+             xmlns:local="clr-namespace:BibliotecaGothamApp.Views"
+             Title="{Binding Title}"
+             BackgroundColor="#EEEEEE">
+   
+
+    <ContentPage.Resources>
+        <Style TargetType="StackLayout">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor"
+                                        Value="#6200EE" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Sobre"
+                 Command="{Binding AboutCommand}"
+                 Order="Secondary"
+                 Priority="2" />
+    </ContentPage.ToolbarItems>
+
+    <StackLayout>
+        <local:ConnectionView/>
+
+        <Frame Margin="5" BackgroundColor="White" CornerRadius="10">
+            <StackLayout Orientation="Vertical">
+                <Label HorizontalOptions="CenterAndExpand" VerticalTextAlignment="Center" Text="Encontre seu livro favorito e pegue-o emprestado."/>
+                <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                    <Label FontAttributes="Bold" TextColor="Black" Text="{Binding TotalRegistros}"/>
+                    <Label  Text=" registros foram encontrados "/>
+                </StackLayout>
+
+            </StackLayout>
+        </Frame>
+               
+
+        <StackLayout >
+            <RefreshView IsRefreshing="{Binding IsRefreshing}"
+             Command="{Binding RefreshCommand}">
+                <CollectionView SelectionMode="Single"
+	                SelectedItem="{Binding SelectedItem}"
+	                SelectionChangedCommand="{Binding ItemSelectedCommand}"
+                    ItemsSource="{Binding LivrosCollection}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                                <Frame Margin="5" BackgroundColor="White" CornerRadius="10">
+                                    <StackLayout Orientation="Horizontal">
+                                        <StackLayout>
+                                            <Label  TextColor="#6200EE" FontAttributes="Bold" HorizontalOptions="Start" FontSize="16" Text="{Binding Titulo}"/>
+                                            <Label TextColor="Black" Text="{Binding Autor}"/>
+                                        </StackLayout>
+
+                                        <StackLayout HorizontalOptions="EndAndExpand">
+                                            <Label  FontAttributes="Bold"  Text="Páginas"/>
+                                            <Label  HorizontalTextAlignment="Center" Text="{Binding informacoesPublicacao.Paginas}"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+             </CollectionView>
+            </RefreshView>
+        </StackLayout>
+        
+    
+        <Frame Margin="5" BackgroundColor="White" CornerRadius="10">
+            <StackLayout Orientation="Vertical">
+
+                <Label TextColor="Black" Text=" Entre com os dados de busca: "/>
+
+                <StackLayout>
+                    <Entry Keyboard="Numeric" Placeholder="Página" Text="{Binding Pagina, Mode=OneWayToSource}"/>
+                    <Entry Keyboard="Numeric" Placeholder="Registros por página" Text="{Binding RegistrosPorPagina, Mode=OneWayToSource}"/>
+                </StackLayout>
+
+                <Button Text="Buscar" Command="{Binding BuscarCommand}"/>
+
+            </StackLayout>
+        </Frame>
+
+    </StackLayout>
+
+</ContentPage>

@@ -37,7 +37,7 @@ namespace BibliotecaGothamAPI.Controllers
         }
             catch (Exception)
             {
-                return StatusCode(500, "Internal server error");
+                return StatusCode(500, "Nenhum livro para retornar!");
             }
         }
        

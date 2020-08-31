@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Prism.Mvvm;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -9,15 +10,47 @@ namespace BibliotecaGothamApp.Models
         public Lista[] lista { get; set; }
         public Paginador paginador { get; set; }
     }
-
-    public class Lista
+    public class Lista : BindableBase
     {
         public int id { get; set; }
-        public string autor { get; set; }
-        public string titulo { get; set; }
-        public string descricao { get; set; }
-        public object imagemCapa { get; set; }
-        public bool disponivel { get; set; }
-        public InformacoesPublicacao informacoesPublicacao { get; set; }
+
+        private string _autor;
+        public string Autor
+        {
+            get { return _autor; }
+            set { SetProperty(ref _autor, value); }
+        }
+
+        private string _titulo;
+        public string Titulo
+        {
+            get { return _titulo; }
+            set { SetProperty(ref _titulo, value); }
+        }
+
+        private string _descricao;
+        public string Descricao
+        {
+            get { return _descricao; }
+            set { SetProperty(ref _descricao, value); }
+        }
+
+        public string imagemCapa { get; set; }
+
+        private bool _disponivel;
+        public bool Disponivel 
+        { 
+            get => _disponivel;
+            set => SetProperty(ref _disponivel, value);
+        }
+        
+        private InformacoesPublicacao _informacoesPublicacao;
+        public InformacoesPublicacao informacoesPublicacao
+        {
+            get { return _informacoesPublicacao; }
+            set { SetProperty(ref _informacoesPublicacao, value); }
+        }
     }
+        
 }
+
