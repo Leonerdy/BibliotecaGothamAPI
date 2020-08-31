@@ -39,10 +39,10 @@
 
         <Frame Margin="5" BackgroundColor="White" CornerRadius="10">
             <StackLayout Orientation="Vertical">
-                <Label HorizontalOptions="CenterAndExpand" VerticalTextAlignment="Center" Text="Encontre seu livro favorito e pegue-o emprestado."/>
+                <Label TextColor="Black" HorizontalOptions="CenterAndExpand" VerticalTextAlignment="Center" Text="Encontre seu livro favorito e pegue-o emprestado."/>
                 <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
                     <Label FontAttributes="Bold" TextColor="Black" Text="{Binding TotalRegistros}"/>
-                    <Label  Text=" registros foram encontrados "/>
+                    <Label TextColor="Black" Text=" registros foram encontrados "/>
                 </StackLayout>
 
             </StackLayout>
@@ -68,7 +68,7 @@
 
                                         <StackLayout HorizontalOptions="EndAndExpand">
                                             <Label  FontAttributes="Bold"  Text="Páginas"/>
-                                            <Label  HorizontalTextAlignment="Center" Text="{Binding informacoesPublicacao.Paginas}"/>
+                                            <Label TextColor="Black" HorizontalTextAlignment="Center" Text="{Binding informacoesPublicacao.Paginas}"/>
                                         </StackLayout>
                                     </StackLayout>
                                 </Frame>
@@ -80,7 +80,7 @@
         </StackLayout>
         
     
-        <Frame Margin="5" BackgroundColor="White" CornerRadius="10">
+        <Frame Margin="5" BackgroundColor="White" CornerRadius="10" BorderColor="Black">
             <StackLayout Orientation="Vertical">
 
                 <Label TextColor="Black" Text=" Entre com os dados de busca: "/>

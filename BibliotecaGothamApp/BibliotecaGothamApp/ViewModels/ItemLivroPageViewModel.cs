@@ -35,7 +35,7 @@ namespace BibliotecaGothamApp.ViewModels
             _dialogService = dialogService;
             Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
             IsNotConnected = Connectivity.NetworkAccess != NetworkAccess.Internet;
-            Title = "Livro";
+            
         }
         ~ItemLivroPageViewModel()
         {
@@ -44,8 +44,12 @@ namespace BibliotecaGothamApp.ViewModels
         #endregion
 
         #region Propriedades
-        public string Title { get; set; }
-
+        private string _disponivel;
+        public string Disponivel
+        {
+            get => _disponivel; 
+            set => SetProperty(ref _disponivel, value); 
+        }
         public string Nome { get; set; }
         public long Telefone { get; set; }
 
@@ -160,7 +164,8 @@ namespace BibliotecaGothamApp.ViewModels
         public void OnNavigatedTo(INavigationParameters parameters)
         {
             LivroSelecionado = parameters["livro"] as Lista;
-            LivroSelecionado.Disponivel.ToString();
+            Disponivel = LivroSelecionado.Disponivel ? "Sim" : "Não";
+
         }
     } 
     #endregion
