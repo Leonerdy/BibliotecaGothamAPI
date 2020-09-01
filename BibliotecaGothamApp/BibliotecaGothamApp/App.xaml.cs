@@ -5,6 +5,7 @@ using BibliotecaGothamApp.Views;
 using Xamarin.Essentials.Interfaces;
 using Xamarin.Essentials.Implementation;
 using Xamarin.Forms;
+using MonkeyCache.FileStore;
 
 namespace BibliotecaGothamApp
 {
@@ -18,7 +19,7 @@ namespace BibliotecaGothamApp
         protected override async void OnInitialized()
         {
             InitializeComponent();
-
+            Barrel.ApplicationId = "CachingData";
             await NavigationService.NavigateAsync("NavigationPage/MainPage");
         }
 
