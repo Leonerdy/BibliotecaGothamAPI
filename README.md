@@ -36,7 +36,11 @@ segue prints das telas:
 
 ![Alt Text](/Docs/tela2.jpeg)
 
-![Alt Text](/Docs/tela3.jpeg)
+##FiltroAcervo
+
+![Alt Text](/Docs/telasearch.jpeg)
+
+![Alt Text](/Docs/telasearch2.jpeg)
 
 ![Alt Text](/Docs/telaSobre.jpeg)
 
