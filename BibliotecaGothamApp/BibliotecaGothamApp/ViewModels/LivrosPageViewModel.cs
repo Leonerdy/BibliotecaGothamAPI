@@ -6,7 +6,9 @@ using Prism.Commands;
 using Prism.Navigation;
 using Prism.Services;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Windows.Input;
@@ -56,11 +58,7 @@ namespace BibliotecaGothamApp.ViewModels
         public Lista SelectedItem { get; set; }
 
         private ObservableCollection<Lista> _livrosCollection;
-        public ObservableCollection<Lista> LivrosCollection
-        {
-            get { return _livrosCollection; }
-            set { SetProperty(ref _livrosCollection, value); }
-        }
+       
 
         private LivroRespostaLista livroRespostaLista { get; set; }
 
@@ -98,6 +96,35 @@ namespace BibliotecaGothamApp.ViewModels
             set =>  SetProperty(ref _isNotConnected, value);
         }
         #endregion
+
+
+
+        public ICommand PerformSearch => new Command<string>((string query) =>
+        {
+            GetSearchResults(query);
+        });
+               
+
+        public ObservableCollection<Lista> LivrosCollection
+        {
+            get { return _livrosCollection; }
+            set { SetProperty(ref _livrosCollection, value); }
+        }
+
+        public ObservableCollection<Lista> RetornoCollection { get; set; }
+
+        public void GetSearchResults(string queryString)
+        {
+            var normalizedQuery = queryString?.ToLower() ?? "";
+            IEnumerable<Lista> first = RetornoCollection.Where(c => c != null && c.Titulo.ToLowerInvariant().Contains(normalizedQuery) ||
+                                                              c.Autor.ToLowerInvariant().Contains(normalizedQuery));
+            
+            var myObservableCollection = new ObservableCollection<Lista>(first);
+            LivrosCollection = myObservableCollection;
+
+        }
+              
+      
 
         #region Comandos
         //Buscar Paginação
@@ -169,6 +196,7 @@ namespace BibliotecaGothamApp.ViewModels
                 livros = livroRespostaLista.lista;
                 ObservableCollection<Lista> retorno = new ObservableCollection<Lista>(livros);
                 LivrosCollection = retorno;
+                RetornoCollection = retorno;
                 IsRefreshing = false;
             }
             catch (Exception)

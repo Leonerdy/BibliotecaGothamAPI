@@ -50,12 +50,19 @@
                
 
         <StackLayout >
+            <SearchBar x:Name="searchBar"
+                   HorizontalOptions="Fill"
+                   VerticalOptions="CenterAndExpand"
+                   Placeholder="Pesquisar.."
+                   SearchCommand="{Binding PerformSearch}" 
+                   SearchCommandParameter="{Binding Text, Source={x:Reference searchBar}}"/>
             <RefreshView IsRefreshing="{Binding IsRefreshing}"
              Command="{Binding RefreshCommand}">
                 <CollectionView SelectionMode="Single"
 	                SelectedItem="{Binding SelectedItem}"
 	                SelectionChangedCommand="{Binding ItemSelectedCommand}"
-                    ItemsSource="{Binding LivrosCollection}">
+                    ItemsSource="{Binding LivrosCollection}"
+                                EmptyView="Não há Livros para serem mostrados =(">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <StackLayout>
